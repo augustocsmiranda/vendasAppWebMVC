@@ -22,7 +22,15 @@ namespace AppVendas.Controllers
         {
             return View();
         }
-
+        
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Sales Web Project MVC App from C#";
+            ViewData["Student"] = "Augusto Miranda - Bachelor of Computer Science";
+            ViewData["University"] = "Universidade Federal Rural de Pernambuco - UFRPE";
+            ViewData["Email"] = "augustocezarmiranda@outlook.com";
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

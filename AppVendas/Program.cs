@@ -23,7 +23,7 @@ namespace AppVendas
                     webBuilder.UseStartup<Startup>();
                 });
 
-        //Retomada do projeto teste
+        
 
     }
 }
