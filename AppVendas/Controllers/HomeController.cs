@@ -1,4 +1,5 @@
 ﻿using AppVendas.Models;
+using AppVendas.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
