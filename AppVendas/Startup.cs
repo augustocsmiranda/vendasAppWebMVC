@@ -27,8 +27,16 @@ namespace AppVendas
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<AppVendasContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AppVendasContext")));
+            /* services.AddDbContext<AppVendasContext>(options =>
+                     //options.UseSqlServer(Configuration.GetConnectionString("AppVendasContext")));
+                     options.UseMySql(Configuration.GetConnectionString("AppVendasContext"), builder => builder.MigrationsAssembly("AppVendas")));
+         */
+            services.AddDbContext<AppVendasContext>(options => options.UseMySql(
+                Configuration.GetConnectionString("AppVendasContext"),
+                new MySqlServerVersion(new Version(8, 0, 21)), // Substitua pela versão correta do seu MySQL
+                builder => builder.MigrationsAssembly("AppVendas")
+     ));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
