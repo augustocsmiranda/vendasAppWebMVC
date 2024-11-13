@@ -3,14 +3,16 @@ using System;
 using AppVendas.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AppVendas.Migrations
 {
     [DbContext(typeof(AppVendasContext))]
-    partial class AppVendasContextModelSnapshot : ModelSnapshot
+    [Migration("20241113155711_OtherMigrations")]
+    partial class OtherMigrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
