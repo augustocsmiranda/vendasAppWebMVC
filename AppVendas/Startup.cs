@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AppVendas.Models;
 using AppVendas.Data;
+using AppVendas.Services;
 
 namespace AppVendas
 {
@@ -37,6 +38,7 @@ namespace AppVendas
                 new MySqlServerVersion(new Version(8, 0, 21)), // Substitua pela versão correta do seu MySQL
                 builder => builder.MigrationsAssembly("AppVendas")));
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
