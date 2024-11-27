@@ -1,4 +1,5 @@
 ﻿using AppVendas.Models;
+//using AspNetCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +21,7 @@ namespace AppVendas.Services
 
         public void Insert(Seller obj)
         {
+            obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
