@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 
 namespace AppVendas.Services
@@ -16,37 +17,38 @@ namespace AppVendas.Services
             _context = context;
         }
 
-        public List<Seller> FindAll()
+        public  async Task<List<Seller>> FindAllAsync()
         {
-            return _context.Seller.ToList();
+            return await _context.Seller.ToListAsync();
         }
 
-        public void Insert(Seller obj)
+        public async Task InsertAsync(Seller obj)
         {
             //obj.Department = _context.Department.First();
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Seller FindById(int id) { 
-            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
+        public  async Task<Seller> FindByIdAsync(int id) { 
+            return await _context.Seller.Include(obj => obj.Department).FirstOrDefaultAsync(obj => obj.Id == id);
         }
 
-        public void Remove(int Id)
+        public async Task RemoveAsync(int Id)
         {
-            var obj = _context.Seller.Find(Id);
+            var obj = await _context.Seller.FindAsync(Id);
             _context.Seller.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void Update(Seller obj) {
-            if (!_context.Seller.Any(x => x.Id == obj.Id)) { 
+        public async Task UpdateAsync(Seller obj) {
+            bool hasAny = _context.Seller.Any(x => x.Id == obj.Id);
+            if (!hasAny) { 
                 throw new KeyNotFoundException("Id not found");
             }
             try
             {
                 _context.Update(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException e) 
             {
