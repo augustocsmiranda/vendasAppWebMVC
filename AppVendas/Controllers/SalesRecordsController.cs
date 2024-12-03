@@ -35,9 +35,22 @@ namespace AppVendas.Controllers
             return View(result);
         }
 
-        public IActionResult GroupingSearch()
+        public async Task<IActionResult> GroupingSearch(DateTime? mindDate, DateTime? maxDate)
         {
-            return View();
+            if (!mindDate.HasValue)
+            {
+                mindDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = mindDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+
+            var result = await _salesRecordService.FindByDateGroupingAsync(mindDate, maxDate);
+            return View(result);
         }
+
     }
 }
