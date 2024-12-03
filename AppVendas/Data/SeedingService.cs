@@ -64,12 +64,29 @@ namespace AppVendas.Data
             SalesRecord r29 = new SalesRecord(29, new DateTime(2018, 10, 23), 12000.0, SaleStatus.Billed, s5);
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s2);
 
+            //Vendas 2023 até 2024
+            SalesRecord r31 = new SalesRecord(31, new DateTime(2023, 1, 15), 15000.0, SaleStatus.Billed, s1);
+            SalesRecord r32 = new SalesRecord(32, new DateTime(2023, 3, 22), 7000.0, SaleStatus.Pending, s2);
+            SalesRecord r33 = new SalesRecord(33, new DateTime(2023, 6, 10), 4000.0, SaleStatus.Canceled, s3);
+            SalesRecord r34 = new SalesRecord(34, new DateTime(2023, 8, 5), 2000.0, SaleStatus.Billed, s4);
+            SalesRecord r35 = new SalesRecord(35, new DateTime(2023, 10, 12), 10000.0, SaleStatus.Billed, s5);
+            SalesRecord r36 = new SalesRecord(36, new DateTime(2023, 12, 25), 3000.0, SaleStatus.Billed, s6);
+            SalesRecord r37 = new SalesRecord(37, new DateTime(2024, 2, 14), 12000.0, SaleStatus.Pending, s1);
+            SalesRecord r38 = new SalesRecord(38, new DateTime(2024, 4, 8), 8000.0, SaleStatus.Canceled, s2);
+            SalesRecord r39 = new SalesRecord(39, new DateTime(2024, 7, 20), 5000.0, SaleStatus.Billed, s3);
+            SalesRecord r40 = new SalesRecord(40, new DateTime(2024, 9, 30), 6000.0, SaleStatus.Billed, s4);
+            SalesRecord r41 = new SalesRecord(41, new DateTime(2024, 11, 3), 9000.0, SaleStatus.Billed, s5);
+            SalesRecord r42 = new SalesRecord(42, new DateTime(2024, 12, 18), 4000.0, SaleStatus.Billed, s6);
+
+
             _context.Department.AddRange(d1, d2, d3, d4);
             _context.Seller.AddRange(s1, s2, s3, s4, s5, s6);
             _context.SalesRecord.AddRange(
                     r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
                     r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
-                    r21, r22, r23, r24, r25, r26, r27, r28, r29, r30
+                    r21, r22, r23, r24, r25, r26, r27, r28, r29, r30,
+                    r31, r32, r33, r34, r35, r36, r37, r38, r39, r40, r41, 
+                    r42
                 );
 
             _context.SaveChanges();
